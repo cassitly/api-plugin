@@ -1,6 +1,5 @@
 // Default
 const Groq = require("groq-sdk");
-const fs = require("fs");
 require('dotenv').config({ path: './src/secret.env' });
 
 const groq = new Groq({ apiKey: process.env.GROQ_API_KEY });
@@ -26,7 +25,5 @@ async function getResponse(userMessage) {
     console.error('Error with AI service:', error);
   }
 }
-const rect = getResponse(`Hi`);
-rect
 
 module.exports = { getResponse };
