@@ -4,7 +4,7 @@ require('dotenv').config({ path: './src/secret.env' });
 
 const groq = new Groq({ apiKey: process.env.GROQ_API_KEY });
 
-async function getResponse(userMessage) {
+module.exports = async function getResponse(userMessage) {
   try {
     const completion = await groq.chat.completions
     .create({
@@ -25,5 +25,3 @@ async function getResponse(userMessage) {
     console.error('Error with AI service:', error);
   }
 }
-
-module.exports = { getResponse };
