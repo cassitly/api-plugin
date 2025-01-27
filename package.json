@@ -1,0 +1,18 @@
+{
+  "name": "groq-chat",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "node src/server.js",
+    "dev": "nodemon src/server.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "dotenv": "^16.4.5",
+    "groq": "^3.64.3",
+    "groq-sdk": "^0.8.0"
+  }
+}
