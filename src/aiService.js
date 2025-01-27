@@ -6,7 +6,7 @@ const groq = new Groq({ apiKey: process.env.GROQ_API_KEY });
 
 module.exports = async function getResponse(userMessage) {
   try {
-    const completion = await groq.chat.completions
+    const completions = await groq.chat.completions
     .create({
       messages: [
         {
@@ -16,11 +16,8 @@ module.exports = async function getResponse(userMessage) {
       ],
       model: "llama3-8b-8192",
     })
-    .then((chatCompletion) => {
-      console.log(chatCompletion.choices[0]?.message?.content || "");
-    });
 
-    return completion.choices[0]?.message?.content || "" + "\n";
+    return completions.choices[0]?.message?.content || "";
   } catch (error) {
     console.error('Error with AI service:', error);
   }
