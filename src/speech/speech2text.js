@@ -62,10 +62,10 @@ function formatTime(seconds) {
   return date.toISOString().substr(11, 8) + ',' + ('000' + date.getMilliseconds()).slice(-3);
 }
 
-async function generateSubtitles() {
+async function generateSubtitles(audioPath) {
   try {
     // Step 1: Upload audio
-    const audioUrl = await uploadAudio();
+    const audioUrl = await uploadAudio(audioPath);
 
     // Step 2: Request transcription
     const transcriptId = await requestTranscription(audioUrl);
