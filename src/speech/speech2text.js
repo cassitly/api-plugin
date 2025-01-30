@@ -1,11 +1,11 @@
 const axios = require('axios');
 const fs = require('fs');
 
+require('dotenv').config({ path: './src/secret.env' });
 const apiKey = process.env.SPEECH_RECOGNITION_API_KEY;
-const audioPath = 'path/to/audio.mp3'; // Your audio file
 
 // Upload audio file to AssemblyAI
-async function uploadAudio() {
+async function uploadAudio(audioPath) {
   const audioFile = fs.createReadStream(audioPath);
   const response = await axios.post('https://api.assemblyai.com/v2/upload', audioFile, {
     headers: { 'authorization': apiKey },

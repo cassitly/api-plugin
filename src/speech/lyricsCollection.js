@@ -1,8 +1,9 @@
 const axios = require('axios');
+require('dotenv').config({ path: './src/secret.env' });
 
 const getLyricsFromGenius = async (songTitle, artist) => {
   const apiUrl = `https://api.genius.com/search?q=${encodeURIComponent(songTitle)}%20${encodeURIComponent(artist)}`;
-  const accessToken = 'your_genius_access_token';
+  const accessToken = process.env.LYRICS_RECOGNITION_API_KEY
   const config = {
     headers: { 'Authorization': `Bearer ${accessToken}` }
   };
