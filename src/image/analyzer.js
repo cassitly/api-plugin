@@ -61,6 +61,7 @@ async function analyzeImage(imagePath = path.join(__dirname, 'your-image.jpg')) 
 
     // Output the description provided by the model
     console.log(response.data.choices[0].message.content);
+    return response.data.choices[0].message.content;
   } catch (error) {
     console.error('Error analyzing image:', error.response ? error.response.data : error.message);
   }
