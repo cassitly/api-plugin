@@ -1,15 +1,16 @@
 const axios = require('axios');
 const fs = require('fs');
+const path = require('path');
 require('dotenv').config({ path: './src/secret.env' });
 
 // Function to encode an image to base64
-function encodeImageToBase64(imagePath) {
+function encodeImageToBase64(imagePath = path.join(__dirname, 'your-image.jpg')) {
   const image = fs.readFileSync(imagePath);
   return image.toString('base64');
 }
 
 // Function to analyze the image using Groq API
-async function analyzeImage(imagePath) {
+async function analyzeImage(imagePath = path.join(__dirname, 'your-image.jpg')) {
   /**
    * @param {string} imagePath - The path to the image file.
    * @description Analyzes an image using Groq API.
