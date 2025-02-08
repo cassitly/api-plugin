@@ -39,6 +39,7 @@ module.exports = async function cycleImages(imageFolder = path.join(__dirname, "
 
     if (fileExists(imagePath)) {
       console.log(`Displaying: ${imageName}`);
+      return imagePath;
     } else {
       console.log(`Skipping missing file: ${imageName}`);
     }
