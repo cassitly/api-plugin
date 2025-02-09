@@ -33,18 +33,20 @@ module.exports = async function cycleImages(imageFolder = path.join(__dirname, "
    * cycleImages(imageFolder, baseName, fileExtension, startIndex, endIndex, delayMs);
    * @example
    */
+  let imagePaths = [];
+
   for (let i = startIndex; i <= endIndex; i++) {
-    const imageName = `${baseName}${i}${fileExtension}`;
-    const imagePath = path.join(imageFolder, imageName);
+      const imageName = `${baseName}${i}${fileExtension}`;
+      const imagePath = path.join(imageFolder, imageName);
 
-    if (fileExists(imagePath)) {
-      console.log(`Displaying: ${imageName}`);
-      return imagePath;
-    } else {
-      console.log(`Skipping missing file: ${imageName}`);
-    }
-
-    await new Promise((resolve) => setTimeout(resolve, delayMs)); // Delay before next image
+      if (fs.existsSync(imagePath)) {
+          console.log(`Displaying: ${imageName}`);
+          imagePaths.push(imagePath); // Add valid images to array
+          await new Promise((resolve) => setTimeout(resolve, delayMs)); // Delay before next image
+      } else {
+          console.log(`Skipping: ${imageName} (Not found)`);
+      }
   }
-  console.log("Image cycling complete.");
+
+  return imagePaths;
 }
