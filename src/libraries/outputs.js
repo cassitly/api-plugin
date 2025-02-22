@@ -1,4 +1,4 @@
-const noClockLogs = require('../private/no-clock-output.js');
+const noClockLogs = require('../private/non-clock-output.js');
 const withClockLogs = require('../private/with-clock-output.js');
 const warnings = require('../private/warnings.js');
 
