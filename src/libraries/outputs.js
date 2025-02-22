@@ -5,7 +5,6 @@ const warnings = require('../private/warnings.js');
 // Helper to add output to the terminal
 const { defineModules, defineLogs } = require('../../config.yml.js');
 function addOutput(text) {
-    console.log(text); // Prints text to the console
     warnings(); // Prints warnings if enabled
 
     // Defines settings for the module
