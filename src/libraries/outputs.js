@@ -1,5 +1,5 @@
-const noClockLogs = require('../private/noClockLogs.js');
-const withClockLogs = require('../private/withClockOutput.js');
+const noClockLogs = require('../private/non-clock-output.js');
+const withClockLogs = require('../private/with-clock-output.js');
 const warnings = require('../private/warnings.js');
 
 // Helper to add output to the terminal
