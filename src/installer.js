@@ -8,7 +8,7 @@ const npm = defineInstallerConfig().modules.npm;
 const issues_page = defineInstallerConfig().package.issues;
 
 /** NodeJS modules */
-const { existsSync, mkdirSync, writeFileSync, readFileSync } = require('fs');
+const { existsSync, mkdirSync, writeFileSync } = require('fs');
 const path = require('path');
 
 function configureModules(configuration_path, source_configuration_data, module) {
