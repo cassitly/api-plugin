@@ -53,6 +53,21 @@ function createLocalFiles(file_path, file_contents) {
 }
 
 async function installSource(module_path = path.resolve('./dependencies/')) {
+    /** WARNING: This module is deprecated
+     * @description This module is deprecated
+     * The reason this is deprecated is because a modular version of the
+     * installer was not possible. Since each installer had to be unique
+     * to each application. Because it was required to install modules
+     * in which this, api-plugin, is one of them. Since this module is
+     * not easily able to be copied over. A new template source for the
+     * installer has been made. At (BLANK), please visit that repository
+     * for the supported version of the installer.
+     */
+
+    console.error("[Deprecated]: Due to the lack of a modular version of the installer, [...]");
+    console.error("[...]: and so that the fact of each installer requires to be unique to each application, this module is deprecated.")
+    throw new Error("[Error]: This module is deprecated. Please use the new installer template. At (BLANK)");
+
     /** Installer Process */
     try {
         npm.name.forEach(async (module) => {
